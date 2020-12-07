@@ -18,7 +18,7 @@ public class LocalDataFileConstants {
   public static final String LOCAL_DATA_FILE_NAME_PREFIX = "DataReport_";
 
   /** The file extension used for local data files. */
-  public static final String LOCAL_DATA_FILE_EXTENSION = ".txt";
+  public static final String LOCAL_DATA_FILE_EXTENSION = ".csv";
 
   /**
    * The number of outdated months to attempt to delete from the filesystem. For example, if files
