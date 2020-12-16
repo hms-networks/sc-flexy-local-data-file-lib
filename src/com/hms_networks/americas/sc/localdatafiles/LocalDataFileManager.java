@@ -89,7 +89,7 @@ public class LocalDataFileManager extends Thread {
     String year = String.valueOf(calendar.get(Calendar.YEAR));
     String month = String.valueOf(calendar.get(Calendar.MONTH) + 1);
     String day = String.valueOf(calendar.get(Calendar.DAY_OF_MONTH));
-    String hour = String.valueOf(calendar.get(Calendar.HOUR));
+    String hour = String.valueOf(calendar.get(Calendar.HOUR_OF_DAY));
 
     // Pad month, day and hour with leading zero if only one digit
     month = month.length() == 1 ? "0" + month : month;
