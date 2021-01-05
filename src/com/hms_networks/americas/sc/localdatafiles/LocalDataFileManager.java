@@ -222,12 +222,14 @@ public class LocalDataFileManager extends Thread {
    * storage every {@link #fileWriteIntervalMillis} milliseconds.
    *
    * @param dataPoints list of data points to add to local data file
+   * @param overwrite boolean indicating if an existing data point (oldest) should be overwritten
+   *     with each of the specified data points
    */
-  public synchronized void addAllDataPoints(List dataPoints) {
+  public synchronized void addAllDataPoints(List dataPoints, boolean overwrite) {
     Iterator dataPointsIterator = dataPoints.iterator();
     while (dataPointsIterator.hasNext()) {
       DataPoint currentDataPoint = (DataPoint) dataPointsIterator.next();
-      addDataPoint(currentDataPoint);
+      addDataPoint(currentDataPoint, overwrite);
     }
   }
 
@@ -236,8 +238,22 @@ public class LocalDataFileManager extends Thread {
    * every {@link #fileWriteIntervalMillis} milliseconds.
    *
    * @param dataPoint data point to add to local data file
+   * @param overwrite boolean indicating if an existing data point (oldest) should be overwritten
+   *     with the specified data point
    */
-  public synchronized void addDataPoint(DataPoint dataPoint) {
+  public synchronized void addDataPoint(DataPoint dataPoint, boolean overwrite) {
+    // Trim outdated data point if required
+    if (overwrite) {
+      // Delete the first line (most outdated data point)
+      final int indexNotFound = -1;
+      final int firstCharacterIndex = 0;
+      final int endOfFirstLineIndex =
+          localDataFileWriteBuffer.indexOf(LocalDataFileConstants.LOCAL_DATA_FILE_LINE_SEPARATOR);
+      if (endOfFirstLineIndex != indexNotFound) {
+        localDataFileWriteBuffer.delete(firstCharacterIndex, endOfFirstLineIndex);
+      }
+    }
+
     // Get datapoint UTC time as long
     long localDataPointTime =
         Long.parseLong(dataPoint.getTimeStamp())
