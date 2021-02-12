@@ -56,8 +56,8 @@ public class LocalDataFileManager extends Thread {
   /**
    * Instantiates a local data file management class with the specified local data file root folder
    * and number of months to retain files. NOTE: This class requires the local time offset provided
-   * by {@link LocalTimeOffsetCalculator} to provide accurate timestamps. You must call {@link
-   * LocalTimeOffsetCalculator#calculateLocalTimeOffsetMilliseconds()} prior to instantiating this
+   * by LocalTimeOffsetCalculator to provide accurate timestamps. You must call
+   * LocalTimeOffsetCalculator#calculateLocalTimeOffsetMilliseconds() prior to instantiating this
    * class.
    *
    * @param localDataFileRootFolder folder where local data file structure will be created/stored
