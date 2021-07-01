@@ -134,6 +134,13 @@ public class LocalDataFileConstants {
   public static final String LOCAL_DATA_FILE_DATA_TYPE_STRING = "STRING";
 
   /**
+   * The string to be printed in local data files to represent the tag/data type
+   * INTEGER_MAPPED_STRING.
+   */
+  public static final String LOCAL_DATA_FILE_DATA_TYPE_INTEGER_MAPPED_STRING =
+      "INTEGER_MAPPED_STRING";
+
+  /**
    * The string to be printed in local data files to represent the tag/data type UNKNOWN. This
    * tag/data type does not represent an actual Ewon tag/data type integer, and was added to allow
    * for data points to be output to local data files regardless of an unknown tag/data type.
