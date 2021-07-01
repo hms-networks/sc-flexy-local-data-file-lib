@@ -410,6 +410,8 @@ public class LocalDataFileManager extends Thread {
       dataTypeString = LocalDataFileConstants.LOCAL_DATA_FILE_DATA_TYPE_INTEGER;
     } else if (dataType == DataType.STRING) {
       dataTypeString = LocalDataFileConstants.LOCAL_DATA_FILE_DATA_TYPE_STRING;
+    } else if (dataType == DataType.INTEGER_MAPPED_STRING) {
+      dataTypeString = LocalDataFileConstants.LOCAL_DATA_FILE_DATA_TYPE_INTEGER_MAPPED_STRING;
     }
     return dataTypeString;
   }
