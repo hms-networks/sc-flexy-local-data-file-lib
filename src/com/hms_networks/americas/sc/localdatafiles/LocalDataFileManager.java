@@ -310,6 +310,10 @@ public class LocalDataFileManager extends Thread {
    * Appends the specified alarm point to the buffer which is written to local data file storage
    * every {@link #fileWriteIntervalMillis} milliseconds.
    *
+   * @throws IllegalStateException when tag list has not been populated with {@link
+   *     TagInfoManager#refreshTagList()}
+   * @throws IndexOutOfBoundsException when (tagId - {@link TagInfoManager#getLowestTagIdSeen()}) is
+   *     not an index within the TagInfo array bounds.
    * @param tagID alarmed tag ID
    * @param tagName alarmed tag name
    * @param tagValue alarmed tag value
@@ -325,7 +329,8 @@ public class LocalDataFileManager extends Thread {
       String alarmType,
       String alarmStatus,
       String utcTimestamp,
-      String localTimestamp) {
+      String localTimestamp)
+      throws IllegalStateException, IndexOutOfBoundsException {
     // Get tag type
     // TagInfo objects are stored with the "current ID" - "lowest ID seen" used as the index
     int offset = TagInfoManager.getLowestTagIdSeen();
