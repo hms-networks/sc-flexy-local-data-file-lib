@@ -327,7 +327,9 @@ public class LocalDataFileManager extends Thread {
       String utcTimestamp,
       String localTimestamp) {
     // Get tag type
-    TagType tagType = TagInfoManager.getTagInfoArray()[tagID].getType();
+    // TagInfo objects are stored with the "current ID" - "lowest ID seen" used as the index
+    int offset = TagInfoManager.getLowestTagIdSeen();
+    TagType tagType = TagInfoManager.getTagInfoArray()[tagID - offset].getType();
 
     // Append UTC time and delimiter
     localDataFileWriteBuffer.append(utcTimestamp);
