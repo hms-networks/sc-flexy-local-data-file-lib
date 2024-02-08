@@ -2,7 +2,7 @@
 
 ## DEPRECATION NOTICE
 This repository (and library) have been deprecated and will no longer receive updates or maintenance. 
-This functionality has been relocated to the (hms-networks/sc-ewon-flexy-extensions-lib)[https://github.com/hms-networks/sc-ewon-flexy-extensions-lib) repository.
+This functionality has been relocated to the [hms-networks/sc-ewon-flexy-extensions-lib](https://github.com/hms-networks/sc-ewon-flexy-extensions-lib) repository.
 
 THE CODE IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND. HMS DOES NOT WARRANT THAT THE FUNCTIONS OF THE CODE WILL MEET YOUR REQUIREMENTS, OR THAT THE OPERATION OF THE CODE WILL BE UNINTERRUPTED OR ERROR-FREE, OR THAT DEFECTS IN IT CAN BE CORRECTED.
 ---
